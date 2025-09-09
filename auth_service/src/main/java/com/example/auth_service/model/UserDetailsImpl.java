@@ -7,12 +7,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @Builder
 public class UserDetailsImpl implements UserDetails {
 
-    private Long id;
+    private UUID id;
     private String username;
     private String email;
     private String password;
@@ -22,7 +23,7 @@ public class UserDetailsImpl implements UserDetails {
                 user.getId(),
                 user.getName(),
                 user.getEmail(),
-                user.getPassword());
+                user.getPassword_hash());
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
